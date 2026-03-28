@@ -8,7 +8,6 @@ function Register(){
     const [name,setname] = useState("");
     const [email,setemail] =  useState("");
     const [password,setpassword] = useState("");
-    const [data,setdata] = useState("");
 
     const navigate = useNavigate();
 
@@ -16,19 +15,17 @@ function Register(){
         e.preventDefault();
 
         try{
-            const response = await Api.post("/auth/register",{
+            await Api.post("/auth/register",{
                 name,
                 email,
                 password
             })
-            setdata(response.data);
             toast.success("Register Successful");
             console.log("Register Successful");
             navigate("/");
         }catch(err : any){
             console.log("Full Error:", err.response?.data || err.message);
             toast.error(err.response?.data?.message || "Register Failed");
-            setdata("");
         }
 
     }
