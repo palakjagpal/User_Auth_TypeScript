@@ -18,8 +18,6 @@ function Home(){
         <>
             <div className="home">
                 <h1>Home</h1>
-                <p>Token</p>
-                <p>{token}</p>
                 <button className="logout" onClick={log_out}>Logout</button>
             </div>
         </>

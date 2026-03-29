@@ -12,6 +12,8 @@ type AuthState = {
 
     //This ia ac action, A function that handles the exit logic, It takes no arguments and returns nothing,When triggered, this function usually sets the token back to null and might clear local storage or redirect the user to the login page 
     logout : () => void;
+
+    user : {name : string , email : string} | null; 
 }
 
 //useAuthStore is a custom hook
