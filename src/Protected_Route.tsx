@@ -10,7 +10,6 @@ function Protected_Route({children } : any){
     if(!token){
         return <Navigate to="/" />
     }
-
     //If the code reaches this line, it means the if statement was skipped (a token exists!)
     return children;
 }

@@ -13,7 +13,6 @@ type AuthState = {
     //This ia ac action, A function that handles the exit logic, It takes no arguments and returns nothing,When triggered, this function usually sets the token back to null and might clear local storage or redirect the user to the login page 
     logout : () => void;
 
-    user : {name : string , email : string} | null; 
 }
 
 //useAuthStore is a custom hook
@@ -25,17 +24,15 @@ export const useAuthStore = create<AuthState>((set) =>(
         //Instead of starting at null, it looks at the browser's LocalStorage this prevents the user from being logged out the second they hit "Refresh." It tries to grab a saved session key from the browser's memory.
         token : localStorage.getItem("token"),
 
-        //updates the "live" state. Every component using this store will instantly see the new token and react
-        setToken : (t) => {
-            localStorage.setItem("token",t);
-            set({token : t});
+        setToken : (t: string) => {
+            localStorage.setItem("token", t);
+            set({token: t});
         },
 
         //This resets the live state to null
         logout : () => {
             localStorage.removeItem("token");
             set({token : null});
-
         },
     }
-))
+));
