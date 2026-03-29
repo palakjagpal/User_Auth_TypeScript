@@ -11,6 +11,7 @@ function Home(){
     const log_out = () =>{
         logout();
         window.location.href = "/"
+        console.log("Logged out successfully");
     }
 
     return(
