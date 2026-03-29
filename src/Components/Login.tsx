@@ -23,7 +23,7 @@ function Login(){
         if(token){
             navigate("/home")
         }
-    },[]);
+    },[token]);
 
     async function login(e:React.FormEvent){
         e.preventDefault();

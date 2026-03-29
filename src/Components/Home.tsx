@@ -1,3 +1,4 @@
+import { Navigate, useNavigate } from "react-router";
 import { useAuthStore } from "../Store/Store";
 import "./Style.css";
 
@@ -7,10 +8,11 @@ function Home(){
     //useAuthStore(): This calls store and returns the entire state object
     //{token, logout}: This "reaches into" that object and grabs only those two specific pieces, assigning them to local variables you can use in component.
     const {token, logout} = useAuthStore();
+    const navigate = useNavigate();
 
     const log_out = () =>{
         logout();
-        window.location.href = "/"
+        navigate("/");
         console.log("Logged out successfully");
     }
 
