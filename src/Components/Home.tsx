@@ -7,7 +7,7 @@ function Home(){
     //Destructuring to pull the token and the logout function out of useAuthStore store
     //useAuthStore(): This calls store and returns the entire state object
     //{token, logout}: This "reaches into" that object and grabs only those two specific pieces, assigning them to local variables you can use in component.
-    const {token, logout} = useAuthStore();
+    const {logout} = useAuthStore();
     const navigate = useNavigate();
 
     const log_out = () =>{
